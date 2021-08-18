@@ -1,0 +1,7 @@
+*.env
+frontend/node_modules
+.idea
+frontend/package-lock.json
+notebooks/data
+backend/data
+poetry.lock

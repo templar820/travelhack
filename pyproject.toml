@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "travelhack"
+version = "0.1.0"
+description = ""
+authors = ["Arseny Egorov <egoroff-ars@yandex.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.63.0"
+uvicorn = "^0.13.4"
+numpy = "1.19.2"
+pandas = "^1.2.3"
+tqdm = "^4.59.0"
+openpyxl = "^3.0.7"
+python-multipart = "^0.0.5"
+scikit-learn = "^0.24.1"
+catboost = "^0.25"
+deepctr = "^0.8.5"
+scipy = "1.6.1"
+tensorflow = "^2.4.1"
+pydantic = "^1.8.1"
+loguru = "^0.5.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+src_paths = ["backend"]
+length_sort = true
+force_sort_within_sections = true

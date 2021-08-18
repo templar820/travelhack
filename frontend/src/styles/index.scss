@@ -1,0 +1,242 @@
+@import "~@styles/colors.scss";
+@import '~@styles/fonts/fonts.scss';
+
+
+* {
+  outline: none !important;
+}
+
+.maxSize{
+  width: 100%;
+  height: 100%;
+}
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
+}
+
+html,body, #root{
+  width: 100%;
+  height: 100%;
+}
+
+.MuiIconButton-root{
+  padding: 0 !important;
+  &:hover{
+    background-color: rgba(0,0,0,0) !important;
+  }
+}
+
+.card{
+  img{
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+.bm-burger-button{
+  width: 25px;
+  height: 25px;
+  background: red;
+}
+
+.activeCard{
+  min-width: 100px;
+}
+
+.dialog,
+.dialog__overlay {
+
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.dialog {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dialog__overlay {
+  position: absolute;
+  z-index: 1;
+  background: rgba(55, 58, 71, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.dialog--open .dialog__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.Loader{
+  position: absolute;
+  background: rgba(255,255,255, 0.2);
+
+  div{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: Loader 1.4s linear infinite
+  }
+}
+@keyframes Loader {
+  0%{
+    transform-origin: 50% 50%;
+  }
+  100%{
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.dialog__content {
+  width: 50%;
+  max-width: 416px;
+  min-width: 290px;
+  background: #fff;
+  padding: 16px;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog--open .dialog__content {
+  pointer-events: auto;
+}
+
+
+
+.dialog.dialog--open .dialog__content,
+.dialog.dialog--close .dialog__content {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.dialog.dialog--open .dialog__content {
+  animation-name: anim-open;
+}
+
+.dialog.dialog--close .dialog__content {
+  animation-name: anim-close;
+}
+
+@keyframes anim-open {
+  0% { opacity: 0; transform: scale3d(1.1, 1.1, 1); }
+  100% { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@keyframes anim-close {
+  0% { opacity: 1; }
+  100% { opacity: 0; transform: scale3d(0.9, 0.9, 1); }
+}
+
+
+.errorWindow{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  div{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    label{
+      padding: 0px 8px;
+      font-size: 40px;
+      line-height: .8;
+      text-align: center;
+    }
+  }
+  span{
+    margin: 24px 0;
+  }
+  button{
+    margin: 16px 0px;
+    width: 100%;
+    background-color: $primary;
+    border: 1px solid $primary;
+    border-radius: 3px;
+    padding: .5rem 1rem;
+    color: $white;
+  }
+}
+
+.notFound{
+  background: url("~@images/error.png") center center;
+  width: 100%;
+  height: 100%;
+  form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+      min-height: 110px;
+      text-transform: uppercase;
+      background: repeating-linear-gradient(
+                      45deg
+              , #30419b, #30419b 10px, #02c58d 10px, #02c58d 20px);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 110px;
+      line-height: .7;
+      position: relative;
+    }
+  }
+}
+
+.filterRow{
+  padding: 0px 15px;
+  .filters{
+    margin-left: 15px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: #04b;
+    cursor: pointer;
+    outline: none;
+    font-size: 14px;
+    -webkit-transition: color .25s;
+    -o-transition: color .25s;
+    -moz-transition: color .25s;
+    transition: color .25s;
+  }
+  .activeFilters{
+    color: #222;
+  }
+}
+
+.filtersPanel{
+  >*{
+    margin: 8px 0px;
+  }
+  h4{
+    margin-bottom: 16px;
+  }
+}
+
+.DateRangePicker_picker{
+  z-index: 10000;
+
+  *{
+    z-index: 10000;
+  }
+}
+
+.MenuSliderList{
+  padding: 16px;
+  height: 100%;
+  >*{
+    margin-bottom: 8px;
+  }
+
+}
+
